@@ -11,30 +11,35 @@
     </head>
 
     <body onload="onLoad()"">
-        <div id="questionBox">
-            <div class="questionContainer">
-                <input type="radio" id="question1" name="question" value="Question 1">
-                <label id = "question1Label" for="question1">Question 1</label>
-            </div>
-            
-            <div class="questionContainer">
-                <input type="radio" id="question2" name="question" value="Question 2">
-                <label id="question2Label" for="question2">Question 2</label>
-            </div>
+        <!-- <image id="backgroundImage" src="assets/vines.png"></image> -->
+        <div id="quizBox" class="centeredDiv">
+            <p id="questionLabel"></p>
 
-            <div class="questionContainer">
-                <input type="radio" id="question3" name="question" value="Question 3">
-                <label id="question3Label" for="question3">Question 3</label>
+            <div id="answers">
+                <div class="answerContainer">
+                    <input type="radio" id="answer1" name="answer" value="Answer 1">
+                    <label id="answer1Label" for="answer1"></label>
+                </div>
                 
+                <div class="answerContainer">
+                    <input type="radio" id="answer2" name="answer" value="Answer 2">
+                    <label id="answer2Label" for="answer2"></label>
+                </div>
+    
+                <div class="answerContainer">
+                    <input type="radio" id="answer3" name="answer" value="Answer 3">
+                    <label id="answer3Label" for="answer3"></label>
+                    
+                </div>
+    
+                <div class="answerContainer">
+                    <input type="radio" id="answer4" name="answer" value="Answer 4">
+                    <label id="answer4Label" for="answer4"></label>
+                    
+                </div>
             </div>
 
-            <div class="questionContainer">
-                <input type="radio" id="question4" name="question" value="Question 4">
-                <label id="question4Label" for="question4">Question 4</label>
-                
-            </div>
-
-            <div id="movementButtons">
+            <div id="movementButtons" class="centeredDiv">
                 <div class="button" onclick="previous()">
                     <button id="previousButton">Previous</button>
                 </div>

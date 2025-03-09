@@ -1,56 +1,58 @@
-const questionButtons = 
-    [document.getElementById("question1"), 
-    document.getElementById("question2"), 
-    document.getElementById("question3"), 
-    document.getElementById("question4")];
+const answerButtons = 
+    [document.getElementById("answer1"), 
+    document.getElementById("answer2"), 
+    document.getElementById("answer3"), 
+    document.getElementById("answer4")];
 
-const questionLabels = 
-    [document.getElementById("question1Label"), 
-    document.getElementById("question2Label"), 
-    document.getElementById("question3Label"), 
-    document.getElementById("question4Label")];
+const answerLabels = 
+    [document.getElementById("answer1Label"), 
+    document.getElementById("answer2Label"), 
+    document.getElementById("answer3Label"), 
+    document.getElementById("answer4Label")];
 
 const previousButton = document.getElementById("previousButton");
 const nextButton = document.getElementById("nextButton");
 
-const data = JSON.parse("{ \"questionCount\": 3, \"question0\": [\"This\", \"is\", \"a\", \"test\"], \"question1\": [\"Red\", \"Blue\", \"Green\", \"Yellow\"], \"question2\": [\"1\", \"2\", \"3\", \"4\"]}");
-const questionCount = data["questionCount"];
+const questionLabel = document.getElementById("questionLabel");
+
+const data = JSON.parse("{ \"questionCount\": 3, \"question0\": [\"This\", \"is\", \"a\", \"test\", \"What is this?\"], \"question1\": [\"Red\", \"Blue\", \"Green\", \"Yellow\", \"What is your favorite color?\"], \"question2\": [\"1\", \"2\", \"3\", \"4\", \"Pick a number\"]}");
+const answerCount = data["questionCount"];
 
 let answers = [];
-let _questionIndex = 0;
+let _answerIndex = 0;
 
 function onLoad() {
-    for(let i = 0; i < questionCount; i++) {
+    for(let i = 0; i < answerCount; i++) {
         answers[i] = -1;
     }
     
     resetStatus();
-    changeQuestions(data[getQuestions(0)]);
+    changeAnswers(data[getAnswers(0)]);
 }
 
-function getQuestions(_index) {
+function getAnswers(_index) {
     return "question" + _index;
 }
 
 function previous() {
-    if(_questionIndex <= 0) {
+    if(_answerIndex <= 0) {
         return;
     }
 
-    changeQuestions(data[getQuestions(_questionIndex-1)]);
-    _questionIndex--;
+    changeAnswers(data[getAnswers(_answerIndex-1)]);
+    _answerIndex--;
 
     resetStatus();
 }
 
 function next() {
-    if(_questionIndex >= questionCount-1) {
+    if(_answerIndex >= answerCount-1) {
         submit();
         return;
     }
 
-    changeQuestions(data[getQuestions(_questionIndex+1)]);
-    _questionIndex++;
+    changeAnswers(data[getAnswers(_answerIndex+1)]);
+    _answerIndex++;
 
     resetStatus();
 }
@@ -58,32 +60,34 @@ function next() {
 function submit() {
     checkAnswer();
 
-    for(let i = 0; i < questionCount; i++) {
-        // console.log(data[getQuestions(i)][answers[i]]);
+    for(let i = 0; i < answerCount; i++) {
+        // console.log(data[getAnswers(i)][answers[i]]);
     }
 }
 
-function changeQuestions(_questionArray) {
+function changeAnswers(_answerArray) {
     checkAnswer();
 
     for(let i = 0; i < 4; i++) {
-        questionLabels[i].innerText = _questionArray[i];
+        answerLabels[i].innerText = _answerArray[i];
     }
+
+    questionLabel.innerText = _answerArray[4];
 }
 
 function checkAnswer() {
     for(let i = 0; i < 4; i++) {
-        if(questionButtons[i].checked) {
-            answers[_questionIndex] = i;
+        if(answerButtons[i].checked) {
+            answers[_answerIndex] = i;
         }
     }
 }
 
 function resetStatus() {
     for(let i = 0; i < 4; i++) {
-        questionButtons[i].checked = (i == answers[_questionIndex]);
+        answerButtons[i].checked = (i == answers[_answerIndex]);
     }
 
-    previousButton.disabled = (_questionIndex == 0);
-    nextButton.innerText = (_questionIndex < questionCount-1) ? "Next" : "Submit";
+    previousButton.disabled = (_answerIndex == 0);
+    nextButton.innerText = (_answerIndex < answerCount-1) ? "Next" : "Submit";
 }
