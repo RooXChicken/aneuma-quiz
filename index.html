@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo">
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- fix scaling on mobile :D -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aneuma Quiz</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    </head>
+
+    <body onload="onLoad()"">
+        <div id="questionBox">
+            <div class="questionContainer">
+                <input type="radio" id="question1" name="question" value="Question 1">
+                <label id = "question1Label" for="question1">Question 1</label>
+            </div>
+            
+            <div class="questionContainer">
+                <input type="radio" id="question2" name="question" value="Question 2">
+                <label id="question2Label" for="question2">Question 2</label>
+            </div>
+
+            <div class="questionContainer">
+                <input type="radio" id="question3" name="question" value="Question 3">
+                <label id="question3Label" for="question3">Question 3</label>
+                
+            </div>
+
+            <div class="questionContainer">
+                <input type="radio" id="question4" name="question" value="Question 4">
+                <label id="question4Label" for="question4">Question 4</label>
+                
+            </div>
+
+            <div id="movementButtons">
+                <div class="button" onclick="previous()">
+                    <button id="previousButton">Previous</button>
+                </div>
+                    
+                <div class="button" onclick="next()">
+                    <button id="nextButton">Next</button>
+                </div>
+    
+            </div>
+        </div>
+
+        
+    </body>
+
+    <!-- add script at the bottom to ensure all elements have been created -->
+    <script src="main.js" type="text/javascript"></script>
+</html>

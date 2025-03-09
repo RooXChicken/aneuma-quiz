@@ -1,0 +1,9 @@
+#questionBox {
+    display: flex;
+    flex-direction: column;
+}
+
+#movementButtons {
+    display: flex;
+    flex-direction: row;
+}
