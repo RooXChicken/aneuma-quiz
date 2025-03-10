@@ -1,8 +1,7 @@
 body {
     background-image: url("assets/vines.png");
-    /* min-width: 100%; */
     min-height: 100%;
-    background-size: 100%;
+    background-size: 100% auto;
 }
 
 #quizBox {
@@ -12,16 +11,6 @@ body {
     max-width: 786px;
 }
 
-/* #backgroundImage {
-    filter: blur(28px);
-    position: absolute;
-    width: 300%;
-    display: inline;
-    left: -20%;
-    top: -20%;
-    z-index: -1;
-} */
-
 .centeredDiv {
     display: flex;
     flex-direction: column;
@@ -29,7 +18,6 @@ body {
     min-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
 }
 
 #questionLabel {
@@ -45,3 +33,15 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+#logo {
+    max-width: 360px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 
+.horizCenter {
+    margin-top: 10%;
+
+} */
