@@ -13,6 +13,7 @@ const answerLabels =
 const previousButton = document.getElementById("previousButton");
 const nextButton = document.getElementById("nextButton");
 
+const progressLabel = document.getElementById("progressLabel");
 const questionLabel = document.getElementById("questionLabel");
 
 const data = JSON.parse("{ \"questionCount\": 3, \"question0\": [\"This\", \"is\", \"a\", \"test\", \"What is this?\"], \"question1\": [\"Red\", \"Blue\", \"Green\", \"Yellow\", \"What is your favorite color?\"], \"question2\": [\"1\", \"2\", \"3\", \"4\", \"Pick a number\"]}");
@@ -24,6 +25,10 @@ let _answerIndex = 0;
 function onLoad() {
     for(let i = 0; i < answerCount; i++) {
         answers[i] = -1;
+    }
+
+    for(let i = 0; i < 4; i++) {
+        answerButtons[i].oninput = checkCanSubmit;
     }
     
     resetStatus();
@@ -57,17 +62,18 @@ function next() {
     resetStatus();
 }
 
-function submit() {
-    checkAnswer();
+function clickBackground(_index) {
+    answerButtons[_index].checked = true;
+    checkCanSubmit();
+}
 
+function submit() {
     for(let i = 0; i < answerCount; i++) {
         // console.log(data[getAnswers(i)][answers[i]]);
     }
 }
 
 function changeAnswers(_answerArray) {
-    checkAnswer();
-
     for(let i = 0; i < 4; i++) {
         answerLabels[i].innerText = _answerArray[i];
     }
@@ -89,5 +95,25 @@ function resetStatus() {
     }
 
     previousButton.disabled = (_answerIndex == 0);
-    nextButton.innerText = (_answerIndex < answerCount-1) ? "Next" : "Submit";
+    progressLabel.innerText = (_answerIndex+1) + "/" + answerCount;
+
+    checkCanSubmit();
+}
+
+function checkCanSubmit() {
+    checkAnswer();
+    let _final = !(_answerIndex < answerCount-1);
+
+    nextButton.innerText = !_final ? "Next" : "Submit";
+    nextButton.disabled = false;
+
+    if(_final) {
+        for(let i = 0; i < answerCount; i++) {
+            if(answers[i] == -1) {
+                nextButton.disabled = true;
+                break;
+            }
+        }
+    }
+
 }

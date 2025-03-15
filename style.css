@@ -1,7 +1,6 @@
 body {
     background-image: url("assets/vines.png");
-    min-height: 100%;
-    background-size: 100% auto;
+    background-size: 100vw 100vh;
 }
 
 #quizBox {
@@ -24,14 +23,66 @@ body {
     text-align: center;
 }
 
-/* #answers {
-    margin-left: auto;
-    margin-right: auto;
-} */
+button {
+    background-color: #66336F;
+    border-radius: 8px 8px 8px 8px;
+    border-color: #2E1E33;
+    color: white;
+    padding: 10px 24px;
+    min-width: 128px;
+    text-align: center;
+    
+
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background-color: #9a65a3;
+}
+
+input[type="radio"] {
+    appearance: none;
+    margin: 0;
+    background-color: #9a65a3;
+    border: 3px solid #ffffff;
+
+    font: inherit;
+    width: 18px;
+    height: 18px;
+    translate: 0px 3px;
+
+    border-radius: 50% 50% 50% 50%;
+}
+
+.answerContainer {
+    padding: 4px;
+}
+
+.answerLabel:hover {
+    cursor: pointer;
+}
+
+.answerContainer:hover {
+    border-radius: 6px 6px 6px 6px;
+    background-color: #66336F;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    border: 3px solid #2E1E33;
+}
+
+input[type="radio"]:hover {
+    cursor: pointer;
+}
 
 #movementButtons {
     display: flex;
     flex-direction: row;
+    padding-top: 12px;
 }
 
 #logo {
@@ -40,8 +91,13 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-/* 
-.horizCenter {
-    margin-top: 10%;
 
-} */
+#progressLabel {
+    padding: 4px;
+    margin: auto;
+    margin-left: 8px;
+    background-color: #2e1e3370;
+    border-radius: 6px 6px 6px 6px;
+    border: 2px solid #2E1E33;
+    color: #ffffff;
+}

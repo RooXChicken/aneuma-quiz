@@ -11,31 +11,30 @@
     </head>
 
     <body onload="onLoad()"">
-        <!-- <image id="backgroundImage" src="assets/vines.png"></image> -->
         <img id="logo" src="assets/logo.png">
         <div id="quizBox" class="centeredDiv horizCenter">
             <p id="questionLabel"></p>
 
             <div id="answers">
-                <div class="answerContainer">
+                <div class="answerContainer" onclick="clickBackground(0)">
                     <input type="radio" id="answer1" name="answer" value="Answer 1">
-                    <label id="answer1Label" for="answer1"></label>
+                    <label id="answer1Label" class="answerLabel" for="answer1"></label>
                 </div>
                 
-                <div class="answerContainer">
+                <div class="answerContainer" onclick="clickBackground(1)">
                     <input type="radio" id="answer2" name="answer" value="Answer 2">
-                    <label id="answer2Label" for="answer2"></label>
+                    <label id="answer2Label" class="answerLabel" for="answer2"></label>
                 </div>
     
-                <div class="answerContainer">
+                <div class="answerContainer" onclick="clickBackground(2)">
                     <input type="radio" id="answer3" name="answer" value="Answer 3">
-                    <label id="answer3Label" for="answer3"></label>
+                    <label id="answer3Label" class="answerLabel" for="answer3"></label>
                     
                 </div>
     
-                <div class="answerContainer">
+                <div class="answerContainer" onclick="clickBackground(3)">
                     <input type="radio" id="answer4" name="answer" value="Answer 4">
-                    <label id="answer4Label" for="answer4"></label>
+                    <label id="answer4Label"class="answerLabel"  for="answer4"></label>
                     
                 </div>
             </div>
@@ -48,6 +47,7 @@
                 <div class="button" onclick="next()">
                     <button id="nextButton">Next</button>
                 </div>
+                <large id="progressLabel"></large>
     
             </div>
         </div>
