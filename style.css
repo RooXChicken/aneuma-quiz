@@ -1,6 +1,12 @@
+html, body {
+    min-height: 100%;
+}
+
 body {
     background-image: url("assets/vines.png");
-    background-size: 100vw 100vh;
+
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #quizBox {
@@ -82,6 +88,8 @@ input[type="radio"]:hover {
 #movementButtons {
     display: flex;
     flex-direction: row;
+
+    gap: 12px;
     padding-top: 12px;
 }
 
@@ -95,7 +103,6 @@ input[type="radio"]:hover {
 #progressLabel {
     padding: 4px;
     margin: auto;
-    margin-left: 8px;
     background-color: #2e1e3370;
     border-radius: 6px 6px 6px 6px;
     border: 2px solid #2E1E33;
